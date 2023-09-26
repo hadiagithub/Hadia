@@ -1,0 +1,73 @@
+Structure
+  - config
+    - schema.js         // Define GraphQL schema
+    - db.js
+  - modules
+   -Employee
+    - employeeType.js
+    - queries.js        // Define GraphQL queries
+    - mutations.js      // Define GraphQL mutations
+  - models
+    - employee.js       // Define Sequelize Employee model
+  - index.js            // Main application file
+- package.json
+==============================================================
+                   Database(POSTGRESQL)
+==============================================================
+databas: employee
+table: EMP
+id: integer(PK)
+empname: character varying
+job: character varying
+department: character varying
+salary: integer
+hire_date: date
+==========================
+Example data
+==========================
+mutation {
+  deleteEmployee(id: 1) {
+    id
+    empname
+    job
+    department
+    salary
+    hire_date
+  }
+}
+================================
+mutation {
+  updateEmployee(
+    id: 1
+    empname: "Hajra Asad"
+    job: "Software Enginer"
+    department: "CS"
+    salary: 80000
+    hire_date: "2022-02-20"
+  ) {
+    id
+    empname
+    job
+    department
+    salary
+    hire_date
+  }
+}
+
+====================================
+mutation {
+  createEmployee(
+    empname: "Hira Ali"
+    job: "Manager"
+    department: "Operations"
+    salary: 75000
+    hire_date: "2022-01-15"
+  ) {
+    id
+    empname
+    job
+    department
+    salary
+    hire_date
+  }
+}
